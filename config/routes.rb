@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :trees, only: :index
+  resources :boroughs, only: :index
   # resources :species
   # resources :genera
 end
