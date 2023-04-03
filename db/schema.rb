@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_26_074658) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "boroughs", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -26,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_074658) do
   create_table "species", force: :cascade do |t|
     t.string "name"
     t.string "common_name"
-    t.integer "genus_id", null: false
+    t.bigint "genus_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genus_id"], name: "index_species_on_genus_id"
@@ -34,8 +37,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_074658) do
 
   create_table "trees", force: :cascade do |t|
     t.integer "gla_id"
-    t.integer "borough_id", null: false
-    t.integer "species_id", null: false
+    t.bigint "borough_id", null: false
+    t.bigint "species_id", null: false
     t.float "lat"
     t.float "lon"
     t.datetime "created_at", null: false
