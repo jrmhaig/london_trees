@@ -6,4 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-require 'csv'
+9.times do |i|
+  Populater.new("db/Borough_tree_list_2021July_0#{i}.csv").call
+end
